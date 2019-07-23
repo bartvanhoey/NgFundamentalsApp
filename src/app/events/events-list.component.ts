@@ -18,4 +18,8 @@ export class EventsListComponent {
           country: 'England'
         }
       };
+
+      handleEventClick(data) {
+          console.log('Event name: ', data);
+      }
 }

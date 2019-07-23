@@ -1,5 +1,5 @@
 <div>
     <h1>Upcomping Angular Events</h1>
     <hr/>
-    <app-event-thumbnail [event]="event1" ></app-event-thumbnail>
+    <app-event-thumbnail [event]="event1" (eventClick)="handleEventClick($event)" ></app-event-thumbnail>
 </div>
