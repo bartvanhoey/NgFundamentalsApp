@@ -118,7 +118,7 @@ const EVENTS: IEvent[] = [{
           of the United States through his amazing programming skills,
           showing how you too can be success with just attitude.`,
     voters: ['bradgreen']
-  },]
+  }, ]
 }, {
   id: 3,
   name: 'ng-conf 2037',
@@ -192,7 +192,7 @@ const EVENTS: IEvent[] = [{
           to use directives in your Angular 4 development while drawing lessons from the new movie,
           featuring all your favorite characters like Han Solo's ghost and Darth Jar Jar.`,
     voters: ['bradgreen', 'martinfowler']
-  },]
+  }, ]
 }, {
   id: 4,
   name: 'UN Angular Summit',
@@ -236,7 +236,7 @@ const EVENTS: IEvent[] = [{
           the latest Destiny DLC, but we can still improve the massages they give and the handmade
           brie they make using Angular 4. This session will show you how.`,
     voters: ['igorminar', 'johnpapa']
-  },]
+  }, ]
 }, {
   id: 5,
   name: 'ng-vegas',
@@ -282,7 +282,7 @@ import { IEvent } from './event.model';
 @Injectable()
 export class EventService {
   saveEvent(event: any) {
-   
+
     event.id = 999;
     event.sessions = [];
     EVENTS.push(event);
@@ -295,6 +295,10 @@ export class EventService {
 
   getEvent(id: number): IEvent {
     return EVENTS.find(event => event.id === id);
+  }
+  updateEvent(event: IEvent) {
+    const index = EVENTS.findIndex(e => e.id === event.id);
+    EVENTS[index] = event;
   }
 }
 
