@@ -10,7 +10,8 @@ import {
   CreateEventComponent,
   EventsListResolver,
   EventRouterActivator,
-  CreateSessionComponent
+  CreateSessionComponent,
+  SessionListComponent
 } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -35,7 +36,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     EventDetailsComponent,
     CreateEventComponent,
     Error404Component,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   providers: [
     EventService,
