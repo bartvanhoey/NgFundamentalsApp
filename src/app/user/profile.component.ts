@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
+import { IToastr, TOASTR_TOKEN } from '../common/toastr.service';
 
 @Component({
   templateUrl: './profile.component.html',
@@ -17,15 +18,15 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
   firstName: FormControl;
-lastName: FormControl;
-  constructor(private authService: AuthService, private router: Router) { }
+  lastName: FormControl;
+  constructor(private authService: AuthService, private router: Router, @Inject(TOASTR_TOKEN) private toastr: IToastr) { }
 
   ngOnInit() {
-    this.firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required, 
-      Validators.pattern('[a-zA-Z].*')]);
+    this.firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required,
+    Validators.pattern('[a-zA-Z].*')]);
     this.lastName = new FormControl(this.authService.currentUser.lastName, Validators.required);
     this.profileForm = new FormGroup({
-      firstName:  this.firstName,
+      firstName: this.firstName,
       lastName: this.lastName
     });
   }
@@ -33,7 +34,8 @@ lastName: FormControl;
   saveProfile(formValues: { firstName: string; lastName: string; }) {
     if (this.profileForm.valid) {
       this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
-      this.router.navigate(['/events']);
+      this.toastr.success(formValues.firstName + ' ' + formValues.lastName + ' saved', 'Profile saved');
+      // this.router.navigate(['/events']);
     }
   }
 
@@ -42,12 +44,12 @@ lastName: FormControl;
   }
 
   validateLastName() {
-      return this.lastName.valid || this.lastName.untouched;
+    return this.lastName.valid || this.lastName.untouched;
   }
 
   validateFirstName() {
     return this.firstName.valid || this.firstName.untouched;
-}
+  }
 
 }
 
