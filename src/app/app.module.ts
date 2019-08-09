@@ -17,14 +17,16 @@ import {
 
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/nav-bar.component';
-import { TOASTR_TOKEN, IToastr } from './common/toastr.service';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { CollapsibleWellComponent } from './common/collapsible-well.component';
+import { CollapsibleWellComponent, TOASTR_TOKEN, Toastr, JQ_TOKEN } from './common/index';
 
-declare let toastr: IToastr;
+// tslint:disable-next-line:no-string-literal
+const toastr: Toastr = window['toastr'];
+// tslint:disable-next-line:no-string-literal
+const jQuery = window['$'];
 
 @NgModule({
   imports: [
