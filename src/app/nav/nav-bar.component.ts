@@ -18,7 +18,7 @@ export class NavBarComponent {
     constructor(public authService: AuthService, private eventService: EventService) {
     }
 
-    searchSessions(searchTerm): any {
+    searchSessions(searchTerm: string): any {
         this.eventService.searchSessions(searchTerm)
             .subscribe(sessions => {
                 this.foundSessions = sessions ;
