@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../user/auth.service';
 import { ISession, EventService } from '../events';
+import { $ } from 'protractor';
 
 @Component({
     selector: 'app-nav-bar',
@@ -16,6 +17,7 @@ export class NavBarComponent {
     searchTerm = '';
     foundSessions: ISession[];
     constructor(public authService: AuthService, private eventService: EventService) {
+        $('#id').modal()
     }
 
     searchSessions(searchTerm: string): any {
