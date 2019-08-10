@@ -21,7 +21,7 @@ import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { CollapsibleWellComponent, TOASTR_TOKEN, Toastr, JQ_TOKEN } from './common/index';
+import { CollapsibleWellComponent, TOASTR_TOKEN, Toastr, JQ_TOKEN, SimpleModalComponent } from './common/index';
 
 // tslint:disable-next-line:no-string-literal
 const toastr: Toastr = window['toastr'];
@@ -45,13 +45,16 @@ const jQuery = window['$'];
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent
   ],
   providers: [
     EventService,
     {
-      provide: TOASTR_TOKEN,
-      useValue: toastr
+      provide: TOASTR_TOKEN, useValue: toastr
+    },
+    {
+      provide: JQ_TOKEN, useValue: jQuery
     },
     EventRouterActivator,
     // tslint:disable-next-line: object-literal-key-quotes
