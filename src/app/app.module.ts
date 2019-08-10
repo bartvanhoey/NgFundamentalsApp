@@ -46,7 +46,7 @@ const jQuery = window['$'];
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
-    SimpleModalComponent, 
+    SimpleModalComponent,
     ModalTriggerDirective
   ],
   providers: [

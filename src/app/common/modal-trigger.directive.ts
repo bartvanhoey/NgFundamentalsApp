@@ -1,8 +1,9 @@
 import { Directive, OnInit, Inject, ElementRef } from '@angular/core';
-import { JQ_TOKEN } from '.';
+import { JQ_TOKEN } from './jQuery.service';
 
 @Directive({
-    selector: '[modal-trigger]'
+    // tslint:disable-next-line:directive-selector
+    selector: '[app-modal-trigger]'
 })
 export class ModalTriggerDirective implements OnInit {
     private el: HTMLElement;
