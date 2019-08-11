@@ -33,7 +33,6 @@ export class EventDetailsComponent implements OnInit {
     }
 
     saveNewSession(session: ISession) {
-        // console.log({ session });
         // tslint:disable-next-line:no-shadowed-variable
         const nextId = Math.max.apply(null, this.event.sessions.map(session => session.id)) + 1;
         session.id = nextId;

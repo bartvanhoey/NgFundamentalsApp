@@ -17,14 +17,12 @@ export class NavBarComponent {
     searchTerm = '';
     foundSessions: ISession[];
     constructor(public authService: AuthService, private eventService: EventService) {
-        //$('#id').modal();
     }
 
     searchSessions(searchTerm: string): any {
         this.eventService.searchSessions(searchTerm)
             .subscribe(sessions => {
                 this.foundSessions = sessions ;
-                console.log(this.foundSessions);
             });
     }
 }
