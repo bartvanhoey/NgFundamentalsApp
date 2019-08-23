@@ -12,7 +12,8 @@ import {
   EventRouterActivator,
   CreateSessionComponent,
   SessionListComponent,
-  DurationPipe
+  DurationPipe,
+  UpvoteComponent
 } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -46,8 +47,9 @@ const jQuery = window['$'];
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
+    UpvoteComponent,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
   ],
   providers: [
     EventService,
