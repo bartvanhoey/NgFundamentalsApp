@@ -1,6 +1,6 @@
 <div class="row" *ngFor="let session of visibleSessions">
   
-  <div class="col-md-1">
+  <div class="col-md-1" style="align-items: center">
     <app-upvote (vote)="toggleVoteSession(session)" [count]="session.voters.length" [voted]="userHasVoted(session)"></app-upvote>
   </div>
   <div class="col-md-10">

@@ -13,7 +13,8 @@ import {
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe,
-  UpvoteComponent
+  UpvoteComponent,
+  VoterService
 } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -66,7 +67,8 @@ const jQuery = window['$'];
       useValue: checkDirtyState
     },
     EventsListResolver,
-    AuthService
+    AuthService,
+    VoterService
   ],
   bootstrap: [EventsAppComponent]
 })
