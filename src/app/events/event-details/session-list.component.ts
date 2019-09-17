@@ -1,8 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { ISession } from '../shared';
-import { ISpeed } from 'selenium-webdriver';
 import { AuthService } from 'src/app/user/auth.service';
-import { VoterService } from '.';
+import { VoterService } from './voter.service';
 
 @Component({
     selector: 'app-session-list',
