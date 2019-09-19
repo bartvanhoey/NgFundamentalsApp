@@ -275,23 +275,38 @@ const EVENTS: IEvent[] = [{
 }];
 
 import { Injectable, EventEmitter } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { IEvent } from './event.model';
 import { ISession } from '.';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 
 @Injectable()
 export class EventService {
+  constructor(private http: HttpClient) { }
+
   saveEvent(event: any) {
 
     event.id = 999;
     event.sessions = [];
     EVENTS.push(event);
   }
+
+  // ERROR: [HPM] Error occurred while trying to proxy request /api/events from localhost:4200 to http://localhost:8808
+  // (ECONNREFUSED) (https://nodejs.org/api/errors.html#errors_common_system_errors)
+  // => you need to start local backend-api-server in seperate terminal with command `npm run server`
   getEvents(): Observable<IEvent[]> {
-    const subject = new Subject<IEvent[]>();
-    setTimeout(() => { subject.next(EVENTS); subject.complete(); }, 100);
-    return subject;
+    return this.http.get<IEvent[]>('/api/events')
+      .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
+
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.log(error);
+      return of(result as T);
+    };
   }
 
   getEvent(id: number): IEvent {
