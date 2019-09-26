@@ -18,7 +18,7 @@
     "@angular/core": "~8.0.0",
     "@angular/forms": "~8.0.0",
     "@angular/platform-browser": "~8.0.0",
-    "@angular/platform-browser-dynamic": "~8.0.0",
+    "@angular/platform-browser-dynamic": "~8.2.8",
     "@angular/router": "~8.0.0",
     "ngf-bootstrap": "0.0.5",
     "ngf-server": "^1.0.2",
